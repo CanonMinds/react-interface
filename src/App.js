@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallBack, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { BiCalendar } from "react-icons/bi";
 import AppointmentInfo from "./components/AppointmentInfo";
 import AddAppointment from "./components/AddAppointment";
