@@ -46,7 +46,20 @@ function App() {
         <BiCalendar className="inline-block text-red-400 align-top" /> Your
         Appointments{" "}
       </h1>
-      <AddAppointment />
+      <AddAppointment
+        // spread operator, myAppointment acts to be 'pushed' in the array
+        onSendAppointment={(myAppointment) =>
+          setAppointmentList([...appointmentList, myAppointment])
+        }
+        // trying to use reducer - like an accumulator in the array but the on the context
+        // that reduce(max, item) - checks out to see if the current value of the item is the biggest
+        // stores it then continue to loop/compare through the remaining set of list of numbers and compares
+        // them until the highest number is determined as the last id.
+        lastId={appointmentList.reduce(
+          (max, item) => (Number(item.id) > max ? Number(item.id) : max),
+          0
+        )}
+      />
       <Search
         query={query}
         onQueryChange={(myQuery) => setQuery(myQuery)}
