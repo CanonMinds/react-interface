@@ -43,8 +43,8 @@ function App() {
   return (
     <div className="App container mx-auto mt-3 font-thin">
       <h1 className="text-5xl mb-3">
-        <BiCalendar className="inline-block text-red-400 align-top" /> Your
-        Appointments{" "}
+        <BiCalendar className="inline-block text-red-500 align-top" />
+        SCHEDULES
       </h1>
       <AddAppointment
         // spread operator, myAppointment acts to be 'pushed' in the array
