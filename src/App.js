@@ -41,7 +41,7 @@ function App() {
   }, [fetchData]);
 
   return (
-    <div className="App container mx-auto mt-3 font-thin">
+    <div className="App container mx-auto mt-3 p-5 font-thin">
       <h1 className="text-5xl mb-3">
         <BiCalendar className="inline-block text-red-500 align-top" />
         SCHEDULES
