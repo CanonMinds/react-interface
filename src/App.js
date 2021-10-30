@@ -6,6 +6,15 @@ import Search from "./components/Search";
 
 function App() {
   let [appointmentList, setAppointmentList] = useState([]);
+  let [query, setQuery] = useState("");
+
+  const filteredAppointments = appointmentList.filter((item) => {
+    return (
+      item.petName.toLowerCase().includes(query.toLowerCase()) ||
+      item.ownerName.toLowerCase().includes(query.toLowerCase()) ||
+      item.aptNotes.toLowerCase().includes(query.toLowerCase())
+    );
+  });
 
   const fetchData = useCallback(() => {
     fetch("./data.json")
@@ -28,10 +37,10 @@ function App() {
         Appointments{" "}
       </h1>
       <AddAppointment />
-      <Search />
+      <Search query={query} onQueryChange={(myQuery) => setQuery(myQuery)} />
 
       <ul className="divide-y divide-gray-200">
-        {appointmentList.map((appointment) => (
+        {filteredAppointments.map((appointment) => (
           <AppointmentInfo
             key={appointment.id}
             appointment={appointment}
